@@ -1,0 +1,72 @@
+<body>
+<div id="head">
+  
+  <img src="../../assets/img/C1.PNG" > 
+</div>
+<div id="viewport">
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <header>
+      <a href="#">My App</a>
+    </header>
+    <ul class="nav">
+      <li>
+        <a routerLink="/dashboard">
+          <i class="fa fa-home fa-2x" aria-hidden="true" ></i>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a routerLink="/collaborateur" >
+          <i class="fa fa-users " aria-hidden="true"></i> Collabourateur
+        </a>
+      </li>
+      <li>
+        <a routerLink="/projet">
+          <i class="fa fa-cogs" aria-hidden="true"></i> Projets
+        </a>
+      </li>
+      <li>
+        <a routerLink="/mission">
+          <i class="fa fa-tasks" aria-hidden="true"></i> Mission
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="zmdi zmdi-info-outline"></i> About
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="zmdi zmdi-settings"></i> Services
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="zmdi zmdi-comment-more"></i> Contact
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- Content -->
+  <div id="conten">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#"><i class="zmdi zmdi-notifications text-danger"></i>
+            </a>
+          </li>
+          <li><a href="#">Test User</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div >
+     <router-outlet></router-outlet>
+     
+    </div>
+  </div>
+</div>
+</body>
+
+ 

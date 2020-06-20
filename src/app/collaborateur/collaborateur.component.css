@@ -1,0 +1,26 @@
+h4{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-size: 30px;
+  }
+#collab{
+    margin-left: 70px;
+}
+.example-container {
+    display: block;
+    flex-direction: column;
+    width: 80px;
+  }
+
+body {
+  
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  width: 100%;
+}
+
+#ml{
+  margin-left: 72px;
+}
+#s{
+  width: 1045px;
+}

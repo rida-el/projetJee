@@ -1,0 +1,43 @@
+
+<div  id="mission">
+    <div class="col-md-12 " >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4>Ajouter des Projets</h4>
+            </div>
+            <div class="panel-body">
+                <form [formGroup]="Projetform"  >
+                    <div class="example-container">
+                        <mat-form-field>
+                          <input matInput placeholder="intitule" [(ngModel)]="projet.intitule"
+                          name="intitule" formControlName="intitule" >
+                        </mat-form-field>
+                      
+                        <mat-form-field>
+                          <textarea matInput placeholder="O"></textarea>
+                        </mat-form-field>
+                      
+                        <mat-form-field>
+                          <input [(ngModel)]="projet.nbTache" matInput placeholder="nbTache "
+                          name="nbTache" formControlName="nbTache">
+                        </mat-form-field>
+                        
+                      </div>
+                      
+                  <button (click)="addProjet()" class="btn" mat-raised-button color="primary"
+                      >Ajouter</button> 
+                    </form>
+            </div>
+        </div>    
+    </div>
+    <div class="col-md-12 " >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4>Liste Des Projets</h4>
+            </div>
+            <div class="panel-body">
+               
+            </div>
+        </div>    
+    </div>
+    </div>

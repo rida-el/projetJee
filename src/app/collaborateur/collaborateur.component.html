@@ -1,0 +1,145 @@
+<body>
+<div class="containe">
+    <div class="ro" id="collab">
+        <div class="col-md-6 " >
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                <h4>Chef De Projet</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="example-container">
+                        <form [formGroup]="reactiveForm"  >
+                          <mat-form-field>
+                            <input matInput placeholder="Nom" type="text" name="nom" formControlName="nom"
+                            [(ngModel)]="chefProjet.nom">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Email" type="text" name="email" formControlName="email"
+                            [(ngModel)]="chefProjet.email">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Téléphone" type="text" name="tel" formControlName="tel"
+                            [(ngModel)]="chefProjet.tel">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Competence" type="text" name="competence" formControlName="competence"
+                            [(ngModel)]="chefProjet.competence">
+                          </mat-form-field>
+                          <!--<mat-form-field *ngIf="missions">
+                            <mat-select placeholder="Select">
+                              <mat-option value="option" *ngFor="let m of missions._embedded.missions">{{m.objectif}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>-->
+                          
+  
+                          <button (click)="saveChefProjet()" (click)="onget()" class="btn" mat-raised-button color="primary"
+                          >Ajouter</button> 
+                          
+                        </form>
+                        
+                      </div>
+                </div>
+            </div>    
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                <h4>Gestionnaire De Projet</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="example-container">
+                        <form [formGroup]="reactiveForm"   >
+                          <mat-form-field>
+                            <input matInput placeholder="Nom" type="text" name="nom" formControlName="nom"
+                            [(ngModel)]="gestionnaireProjet.nom">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Email" type="text" name="email" formControlName="email"
+                            [(ngModel)]="gestionnaireProjet.email">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Téléphone" type="text" name="tel" formControlName="tel"
+                            [(ngModel)]="gestionnaireProjet.tel">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="NB projet géré" type="text" name="nbprojgere" formControlName="nbprojgere"
+                            [(ngModel)]="gestionnaireProjet.nbprojgere">
+                          </mat-form-field>
+<!--<mat-form-field *ngIf="missions">
+                            <mat-select placeholder="Select">
+                              <mat-option value={{m.objectif}} *ngFor="let m of missions._embedded.missions" 
+                              
+                              >{{m.objectif}}</mat-option>
+                            
+                            </mat-select>
+                          </mat-form-field>-->
+                          
+
+
+                          <button (click)="saveGestionnaireProjet()" (click)="onget()" class="btn" mat-raised-button color="primary"
+                          >Ajouter</button> 
+                        </form>
+                        
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="ro">
+    <div class="col-md-11 " id="ml"  >
+        <div class="panel panel-default" id="s">
+            <div class="panel-heading">
+            <h4>List Des Collaborateurs</h4>
+            </div>
+            <div class="panel-body">
+            
+                <table class="table table-striped " *ngIf="collaborateurs">
+                  <thead >
+                   <tr>
+                     <th>Nom</th>
+                     <th>Email</th>
+                     <th>Téléphone</th>
+                     <th>Profil</th>
+                     <th>Competence</th>
+                     <th>NB projet géré</th>
+                     <th></th>
+                   </tr>
+                  </thead>
+                  <tbody>
+                   <tr *ngFor="let c of collaborateurs._embedded.gestionnaireProjets"  >
+                     <td>{{c.nom}}  </td>
+                     <td>{{c.email}} </td>
+                     <td>{{c.tel}} </td>
+                     <td>{{c.profil}} </td>
+                     <td>_</td>
+                     <td>{{c.nbprojgere}} </td>
+                     <td>
+                      <a (click)="ondelet(c)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                      <a class="btn btn-warning"><i class="fa fa-pencil-square " aria-hidden="true"></i></a>
+                    </td>
+                   </tr>
+                   <tr *ngFor="let c of collaborateurs._embedded.chefProjets"  >
+                    <td>{{c.nom}}  </td>
+                    
+                    <td>{{c.email}} </td>
+                    <td>{{c.tel}} </td>
+                    <td>{{c.profil}} </td>
+                    <td>{{c.competence}} </td>
+                    <td>_</td>
+                    <td>
+                    
+                      <a (click)="ondelet(c)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                      <a class="btn btn-warning"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                    </td>
+                  </tr>
+
+                  </tbody>
+                </table>
+            </div>
+        </div> 
+    </div>
+  </div>
+
+</div>
+</body>
