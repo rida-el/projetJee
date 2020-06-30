@@ -1,44 +1,93 @@
+<div class="example-button-row" style="text-align: right;">
 
+  <button routerLink="/addmission" mat-stroked-button color="success">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+   Nouvelle Mission</button>
+</div>
+<div class="row">
+<div class="col-md-4" style="top: 10px;">
+  <div class="panel panel-info">
+    
+      <div class="panel-heading">
+      Les collaborateur
+    </div>
+    <div class="panel-body" style="margin-left: -8px;" >
+      <ul  *ngIf="listMission" class="list-group">
+        <li [ngClass]="m==currntCollab?'active':''" *ngFor="let m of listMission._embedded.chefProjets" class="list-group-item"
+        (click)="get(m)" >
+        {{m.nom}} : {{m.profil}}
+        </li>
+        <li [ngClass]="m==currntCollab?'active':''" *ngFor="let m of listMission._embedded.gestionnaireProjets" class="list-group-item"
+        (click)="get(m)" >
+            {{m.nom}} : {{m.profil}}
+        </li>
+      </ul>
+    </div>
+  </div>
+    </div>
+<div class="col-md-8" style="top: 10px; ">
+      <div class="panel panel-info">
+        
+          <div class="panel-heading">
 
+         Les Mission Affecter
+        </div>
+        <div class="panel-body" >
+          
+          <table *ngIf="mission" class="table">
+            <thead>
+              <tr>
+                <th>Titre</th>
+                <th>Objectif</th>
+                <th>Responsable</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let m of mission._embedded.missions">
+              <td> {{m.titre}}</td>
+              <td>{{m.objectif}} </td>
+              <td>{{m.responsable}} </td>
+            </tr>
+            
+          </tbody>
+          </table>
+        </div>
+      </div>
+        </div>
+      </div>
+    
 
-<div  id="mission">
-<div class="col-md-12 " >
-    <div class="panel panel-default">
-        <div class="panel-heading">
-        <h4>Ajouter des Missions</h4>
-        </div>
-        <div class="panel-body">
-            <form [formGroup]="missionform"  >
-                <div class="example-container">
-                    <mat-form-field>
-                      <input matInput placeholder="Input">
-                    </mat-form-field>
+<div class="row">
+    <div class="col-md-12 " >
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+            Liste Des Mission
+            </div>
+            <div class="panel-body">
+              <table class="table table-striped " *ngIf="miss">
+                <thead >
+                 <tr>
+                   <th>Titre</th>
+                   <th>Objectif</th>
+                   <th>Responsable</th>
+                   
+                   <th></th>
+                 </tr>
+                </thead>
+                <tbody>
+                 <tr *ngFor="let v of miss._embedded.missions"  >
+                   <td> {{v.titre}} </td>
+                  <td>{{v.objectif}}  </td>
+                   <td>{{v.responsable}} </td>
+                   
+                   <td>
+                    <a  class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                  </td>
                   
-                    <mat-form-field>
-                      <textarea matInput placeholder="Textarea"></textarea>
-                    </mat-form-field>
-                  
-                    <mat-form-field>
-                      <mat-select placeholder="Select">
-                        <mat-option value="option">Option</mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                  
-              <button  class="btn" mat-raised-button color="primary"
-                  >Ajouter</button> 
-                </form>
-        </div>
-    </div>    
-</div>
-<div class="col-md-12 " >
-    <div class="panel panel-default">
-        <div class="panel-heading">
-        <h4>Liste Des Missions</h4>
-        </div>
-        <div class="panel-body">
-           
-        </div>
-    </div>    
-</div>
-</div>
+                 </tr>
+                </tbody>  
+              </table>  
+            </div>
+        </div>    
+    </div>
+  </div>

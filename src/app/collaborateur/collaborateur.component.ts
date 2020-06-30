@@ -38,6 +38,7 @@ export class CollaborateurComponent implements OnInit {
     competence: new FormControl(''),
     nbprojgere: new FormControl('')
     
+    
     });
 
 
@@ -58,6 +59,18 @@ export class CollaborateurComponent implements OnInit {
       this.missions=data;
     },err=>{
       console.log(err);
+    })
+  }
+  addChef(id){
+    this.collabmissionservice.saveChef(id,this.chefProjet)
+    .subscribe((chefp)=>{
+      this.mychefprojet=[chefp, ...this.mychefprojet]
+    })
+  }
+  addGestionnaire(id){
+    this.collabmissionservice.saveGestionnaire(id,this.gestionnaireProjet)
+    .subscribe((gestion)=>{
+      this.mygestionnaireProjet=[gestion, ...this.mygestionnaireProjet]
     })
   }
 
@@ -87,4 +100,7 @@ export class CollaborateurComponent implements OnInit {
     }
   }
   
+
+
+
 }

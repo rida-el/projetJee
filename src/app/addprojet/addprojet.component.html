@@ -1,0 +1,83 @@
+<div style="text-align: right;">
+    <button routerLink="/projet" mat-stroked-button color="success">
+        <i class="fa fa-list" aria-hidden="true"></i>
+       Lister Projet</button>
+</div> 
+<div class="row"  >
+    <div class="col-md-11" style="top: 10px; margin-left: 35px; ">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+             <h4>Ajouter un projet</h4>   
+            </div>
+            <div class="panel-body">
+<div>
+    <form  [formGroup]="reactiveForm">
+    <mat-form-field class="example-full-width">
+        <input autocomplete="off" matInput placeholder="Intitule" formControlName="intitule"
+        [(ngModel)]="projet.intitule">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Budget" formControlName="budget"
+        [(ngModel)]="projet.budget">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input autocomplete="off" matInput placeholder="Nombre de Tache" formControlName="nbTache"
+        [(ngModel)]="projet.nbTache">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input autocomplete="off" type="date" matInput placeholder="Date de Livraison" formControlName="date_livraison"
+        [(ngModel)]="projet.date_livraison">
+    </mat-form-field>
+
+
+    <div class="example-button-row">
+      <button mat-stroked-button color="primary" style="margin-left: 50px;"
+      (click)="saveProjet()" >
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Ajouter
+      </button>
+    </div>
+        
+    </form>
+  </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-12 " >
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+           <h4>Liste Des Projets</h4> 
+            </div>
+            <div class="panel-body">
+              <table class="table table-striped " *ngIf="projets">
+                <thead >
+                 <tr>
+                   <th>Intitule</th>
+                   <th>Nb Tache</th>
+                   <th>Budget</th>
+                   <th>Date Livraison</th>
+                   <th></th>
+                 </tr>
+                </thead>
+                <tbody>
+                 <tr *ngFor="let p of projets._embedded.projets"  >
+                   <td>{{p.intitule}}  </td>
+                   <td>{{p.nbTache}} </td>
+                   <td>{{p.budget}} </td>
+                   <td>{{p.date_livraison}} </td>
+                   <td>
+                    <a  class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a class="btn btn-warning"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                  </td>
+                  
+                 </tr>
+                </tbody>  
+              </table>  
+            </div>
+        </div>    
+    </div>
+  </div>
+
+

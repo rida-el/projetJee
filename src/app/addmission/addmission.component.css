@@ -6,16 +6,15 @@
   }
   
   .example-full-width {
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 5%;
+    width: 40%;
+    margin-left: 50px;
   }
-  .example-button-row 
-   {
-    
-    margin-top: 20px;
-    margin-left: 40px;
+  .example-button-row button,
+  .example-button-row a {
+    margin-right: 8px;
+    top: 10px;
   }
+
   h4{
     font-family: 'Times New Roman', Times, serif ;
     font-size: 20px;

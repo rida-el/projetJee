@@ -18,7 +18,11 @@ import { CollabmissionService } from 'src/services/collabmission.service';
 import { MissionComponent } from './mission/mission.component';
 import { ProjetComponent } from './projet/projet.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ChartComponent } from './chart/chart.component';
+
+import {MatIconModule} from '@angular/material/icon';
+import { AddprojetComponent } from './addprojet/addprojet.component';
+import { AddmissionComponent } from './addmission/addmission.component';
+import { ProjetcollabComponent } from './projetcollab/projetcollab.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +32,14 @@ import { ChartComponent } from './chart/chart.component';
     MissionComponent,
     ProjetComponent,
     DashboardComponent,
-    ChartComponent
+    
+    AddprojetComponent,
+    AddmissionComponent,
+    ProjetcollabComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule,MatIconModule,
     BrowserAnimationsModule,MatInputModule,MatFormFieldModule,
     MatSelectModule,HttpClientModule,MatButtonModule,
     FormsModule, ReactiveFormsModule

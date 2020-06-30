@@ -1,0 +1,63 @@
+<div style="text-align: right; margin-right: 10px;">
+    <button routerLink="/mission" mat-stroked-button color="success">
+        <i class="fa fa-list" aria-hidden="true"></i>
+       Lister Mission</button>
+</div> 
+<div class="row">
+    <div class="col-md-11" style="top: 10px; margin-left: 35px; ">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+               <h4>Ajouter une Mission</h4> 
+            </div>
+            <div class="panel-body">
+<div>
+    <form  [formGroup]="missionform">
+    <mat-form-field class="example-full-width">
+        <input autocomplete="off" matInput placeholder="Titre" formControlName="titre"
+        [(ngModel)]="mission.titre">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input autocomplete="off" matInput placeholder="Objectif" formControlName="objectif"
+        [(ngModel)]="mission.objectif">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input autocomplete="off" matInput placeholder="Responsable" formControlName="responsable"
+        [(ngModel)]="mission.responsable">
+    </mat-form-field>
+
+    <p style="margin-top: 50px;text-align: center;font-family: cursive;">Affecter des Collaborateurs</p>
+<div >
+    <mat-form-field class="example-full-width" *ngIf="collaborateurs"  >
+    <mat-select placeholder="Chef Projet" formControlName="collab" >
+          <mat-option value={{c.id}} *ngFor="let c of collaborateurs._embedded.chefProjets">
+              {{c.nom}} 
+          </mat-option>
+    </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" *ngIf="collaborateurs" >
+        <mat-select placeholder="Gestionnaire Projet" formControlName="collab" >
+              <mat-option value={{c.id}} *ngFor="let c of collaborateurs._embedded.gestionnaireProjets">
+                  {{c.nom}} 
+              </mat-option>
+        </mat-select>
+        </mat-form-field>
+</div>        
+
+
+    <div class="example-button-row">
+      <button mat-stroked-button color="primary" style="margin-left: 50px;"
+      (click)="saveMission()" >
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Ajouter
+      </button>
+    </div>
+        
+    </form>
+  </div>
+    </div>
+</div>
+</div>
+</div>
+
+

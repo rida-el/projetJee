@@ -2,3 +2,21 @@
     margin-left: 50px;
 
 }
+h1{
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.titre{
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: ivory;
+}
+a{
+    color: ivory;
+}
+
+
+.page-header{
+
+margin-left: 20px;
+}

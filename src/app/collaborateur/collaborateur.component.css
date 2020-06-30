@@ -1,26 +1,23 @@
-h4{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    font-size: 30px;
-  }
-#collab{
-    margin-left: 70px;
-}
-.example-container {
-    display: block;
-    flex-direction: column;
-    width: 80px;
-  }
-
-body {
+#mission{
+  margin-left: 50px;
   
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+}
+h4{
+  font-family: 'Times New Roman', Times, serif ;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
   width: 100%;
 }
-
-#ml{
-  margin-left: 72px;
-}
-#s{
-  width: 1045px;
+.example-full-width {
+  width: 65%;
+  
 }

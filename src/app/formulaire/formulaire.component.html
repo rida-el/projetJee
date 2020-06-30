@@ -1,22 +1,60 @@
-<div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <form>
-        <div class="form-group">
-          <label for="name">
-            Nom de l'appareil
-          </label>
-          <input type="text" id="name" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="status">
-            État de l'appareil
-          </label>
-          <select id="status" class="form-control">
-            <option value="allumé">Allumé</option>
-            <option value="éteint">Éteint</option>
-          </select>
-        </div>
-        <button class="btn btn-primary">Enregistrer</button>
-      </form>
-    </div>
+<div style="text-align: right;">
+  <button routerLink="/collaborateur" mat-stroked-button color="success">
+      <i class="fa fa-list" aria-hidden="true"></i>
+     Lister Collaborateur</button>
+</div> 
+
+
+<div class="row"  >
+  <div class="col-md-6" style="top: 40px; margin-left: 25%; ">
+      <div class="panel panel-info">
+          <div class="panel-heading">
+             
+              <h4> Affecter Les projets </h4>
+          </div>
+          <div class="panel-body">
+
+  <form  [formGroup]="projetCollabform">
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="VHT" formControlName="vht"
+      [(ngModel)]="projetCollab.vht">
+  </mat-form-field>
+
+  <div >
+    <mat-form-field class="example-full-width" *ngIf="collaborateurs"  >
+    <mat-select placeholder="Collaborateurs" formControlName="collab" >
+          <mat-option value={{c.id}} *ngFor="let c of collaborateurs._embedded.chefProjets">
+            {{c.profil}} : {{c.nom}} 
+          </mat-option>
+          <mat-option value={{c.id}} *ngFor="let c of collaborateurs._embedded.gestionnaireProjets">
+            {{c.profil}} : {{c.nom}} 
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+    
+  </div><div>
+    <mat-form-field class="example-full-width" *ngIf="projets" >
+        <mat-select placeholder="Projets" formControlName="projet" >
+              <mat-option value={{p.id}} *ngFor="let p of projets._embedded.projets">
+                  {{p.intitule}} 
+              </mat-option>
+        </mat-select>
+        </mat-form-field>
+</div> 
+<div class="example-button-row">
+  <button mat-stroked-button color="primary" style="margin-left: 50px;"
+  (click)="saveProjetCollab()" >
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    Ajouter
+  </button>
+</div>
+
+      
+  </form>
+</div>
   </div>
+</div>
+</div>
+
+
+

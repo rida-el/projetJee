@@ -1,43 +1,133 @@
+<div class="example-button-row" style="text-align: right;">
+  <button routerLink="/addprojet" mat-stroked-button color="success">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+   Nouveau Projet</button>
+</div>
+<section>
+<div class="row" style="margin-left: 10px; margin-right: 10px;">
+<div class="col-md-4" style="top: 10px;">
+  <div class="panel panel-success">
+    
+      <div class="panel-heading">
+      <h4>les projet</h4> 
+    </div>
+    <div class="panel-body" style="margin-left:-15px ;">
+      <ul  *ngIf="projets" class="list-group" style="text-align: center;">
+        <li [ngClass]="p==currntProjet?'active':''" *ngFor="let p of projets._embedded.projets" class="list-group-item"
+        (click)="findByProjet(p)" >
 
-<div  id="mission">
-    <div class="col-md-12 " >
-        <div class="panel panel-default">
+          {{p.intitule}}
+        </li>
+      </ul>
+
+    </div>
+  </div>
+    </div>
+<div class="col-md-8" style="top: 10px; ">
+      <div class="panel panel-info">
+        
+          <div class="panel-heading">
+          <h4>Les collaborateurs</h4>
+        </div>
+        <div class="panel-body" >
+
+
+
+          <table *ngIf="projetcollab" class="table">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Profil</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let p of projetcollab">
+              <td> {{p[0]}}</td>
+              <td>{{p[1]}} </td>
+              <td>{{p[2]}} </td>
+              <td>{{p[3]}} </td>
+            </tr>
+          </tbody>
+          </table>
+      </div>
+        </div>
+      </div>
+</div>
+</section>
+
+
+<section>
+  <div class="row" style="margin-left: 10px; margin-right: 10px;">
+  <div class="col-md-4" style="top: 10px;">
+    <div class="panel panel-success">
+      
+        <div class="panel-heading">
+        <h4>les Collaborateur</h4>
+      </div>
+      <div class="panel-body" style="margin-left:-3px ;">
+       
+
+        <table style="width:100%" class="table table-condensed">
+          <tr >
+           <td colspan="2"> <p>Les GestionnairProjet</p> </td>
+          </tr>
+          <tr *ngFor="let c of collaborateurs._embedded.gestionnaireProjets">
+            <td>{{c.nom}} </td>
+            <td><a (click)="findByCollab(c)" (click)="findByVht(c)" class="btn btn-info btn-sm"><i class="fa fa-eye" ></i></a></td>
+          </tr>
+          <tr >
+            <td colspan="2"> <p>Les Les ChefProjet</p> </td>
+           </tr>
+           <tr *ngFor="let c of collaborateurs._embedded.chefProjets">
+            <td>{{c.nom}} </td>
+            <td><a (click)="findByCollab(c)" (click)="findByVht(c)" class="btn btn-info btn-sm"><i class="fa fa-eye" ></i></a></td>
+          </tr>
+
+        </table>
+
+
+
+      </div>
+    </div>
+      </div>
+  <div class="col-md-8" style="top: 10px; ">
+        <div class="panel panel-info">
+          
             <div class="panel-heading">
-            <h4>Ajouter des Projets</h4>
-            </div>
-            <div class="panel-body">
-                <form [formGroup]="Projetform"  >
-                    <div class="example-container">
-                        <mat-form-field>
-                          <input matInput placeholder="intitule" [(ngModel)]="projet.intitule"
-                          name="intitule" formControlName="intitule" >
-                        </mat-form-field>
-                      
-                        <mat-form-field>
-                          <textarea matInput placeholder="O"></textarea>
-                        </mat-form-field>
-                      
-                        <mat-form-field>
-                          <input [(ngModel)]="projet.nbTache" matInput placeholder="nbTache "
-                          name="nbTache" formControlName="nbTache">
-                        </mat-form-field>
-                        
-                      </div>
-                      
-                  <button (click)="addProjet()" class="btn" mat-raised-button color="primary"
-                      >Ajouter</button> 
-                    </form>
-            </div>
-        </div>    
-    </div>
-    <div class="col-md-12 " >
-        <div class="panel panel-default">
-            <div class="panel-heading">
-            <h4>Liste Des Projets</h4>
-            </div>
-            <div class="panel-body">
-               
-            </div>
-        </div>    
-    </div>
-    </div>
+            <h4>les Projets</h4> 
+          </div>
+          <div class="panel-body" >
+  
+  
+  
+            <table *ngIf="listeProjet" class="table">
+              <thead>
+                <tr>
+                  <th>projet</th>
+                  <th>Vht</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let p of listeProjet">
+                <td> {{p[0]}}</td>
+                <td>{{p[1]}} </td>
+              </tr>
+            </tbody>
+            </table>
+
+            <ul *ngIf="vhtTotal" class="list-group">
+             <h2>Le VHT total :</h2> 
+              <li class="list-group-item" style="background: #85b9f3;">
+                {{vhtTotal}} </li>
+            </ul>
+        </div >
+          </div>
+        </div>
+  </div>
+  </section>
+      
+    
+      

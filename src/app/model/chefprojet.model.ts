@@ -3,5 +3,9 @@ export class ChefProjet {
     tel: string;
     email: string;
     competence: string;
-    
+   _links:{
+       mission:{
+           href:string;
+       }
+   }
 }
